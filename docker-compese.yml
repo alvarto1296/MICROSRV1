@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  app:
+    image: maven:3.8.6-openjdk-17-slim  # Usa una imagen de Maven con Java 17
+    container_name: my-java-app
+    volumes:
+      - ./:/usr/src/app  # Mapea tu directorio actual al contenedor
+    working_dir: /usr/src/app
+    command: mvn spring-boot:run  # Comando para ejecutar tu aplicación
+    ports:
+      - "8088:8088"  # Mapea el puerto 8080 del contenedor al host
